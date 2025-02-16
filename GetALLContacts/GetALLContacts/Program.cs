@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using static GetALLContacts.Program;
+using System.Net;
+using System.Security.Policy;
 
 namespace GetALLContacts
 {
@@ -11,7 +14,17 @@ namespace GetALLContacts
     {
         public static string connectionString = @"server=DTERMINAL105\MSSQLSERVER2022;User Id=SSDEV\abdullah;database=ContactsDB;Integrated Security=True;";
 
+        public struct Stcontactinfo
+        {
+            public int ContactID;
+            public string FirstName;
+            public string LastName;
+            public string Email;
+            public string Phone;
+            public string Address;
+            public int CountryID;
 
+        }
         static void PrintAllContacts(string FirstName)
 
         {
@@ -104,7 +117,7 @@ namespace GetALLContacts
                 Console.WriteLine("Error: " + ex.Message);
             }
 
-        } 
+        }
         static string ReadFirstNameByContactId(int ContactID)
         {
 
@@ -128,15 +141,74 @@ namespace GetALLContacts
 
             catch (Exception ex)
             {
-                
-               return "Error: " + ex.Message;
+
+                return "Error: " + ex.Message;
             }
 
         }
+
+        static bool FindSingleContactById(int ContactID, ref Stcontactinfo contactinfo)
+        {
+            bool isfound = false;
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT * FROM Contacts where ContactID = @ContactID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ContactID", ContactID);
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    contactinfo.ContactID = (int)reader["ContactID"];
+                    contactinfo.FirstName = (string)reader["FirstName"];
+                    contactinfo.LastName = (string)reader["LastName"];
+                    contactinfo.Email = (string)reader["Email"];
+                    contactinfo.Phone = (string)reader["Phone"];
+                    contactinfo.Address = (string)reader["Address"];
+                    contactinfo.CountryID = (int)reader["CountryID"];
+                }
+
+                reader.Close();
+                connection.Close();
+                isfound = true;
+            }
+
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+
+
+            return isfound;
+        }
+
+
+        static void PrintContactInfo(ref Stcontactinfo contactinfo) 
+        {
+
+
+            Console.WriteLine($"Contact ID: {contactinfo.ContactID}");
+            Console.WriteLine($"Name: {contactinfo.FirstName} {contactinfo.LastName}");
+            Console.WriteLine($"Email: {contactinfo.Email}");
+            Console.WriteLine($"Phone: {contactinfo.Phone}");
+            Console.WriteLine($"Address: {contactinfo.Address}");
+            Console.WriteLine($"Country ID: {contactinfo.CountryID}");
+            Console.WriteLine();
+        }
         static void Main(string[] args)
         {
-            SercheinFirstNameAllContacts("j");
-             Console.WriteLine(ReadFirstNameByContactId(1));
+ 
+            Stcontactinfo contactinfo = new Stcontactinfo(); ;
+            FindSingleContactById(1, ref contactinfo);
+            PrintContactInfo(ref contactinfo);
             Console.ReadKey();
         }
     }
