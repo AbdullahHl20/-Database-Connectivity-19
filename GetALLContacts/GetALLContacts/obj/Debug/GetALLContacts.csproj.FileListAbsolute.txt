@@ -1,0 +1,7 @@
+C:\Users\abdullah\Source\Repos\-Database-Connectivity-19\GetALLContacts\GetALLContacts\bin\Debug\GetALLContacts.exe.config
+C:\Users\abdullah\Source\Repos\-Database-Connectivity-19\GetALLContacts\GetALLContacts\bin\Debug\GetALLContacts.exe
+C:\Users\abdullah\Source\Repos\-Database-Connectivity-19\GetALLContacts\GetALLContacts\bin\Debug\GetALLContacts.pdb
+C:\Users\abdullah\Source\Repos\-Database-Connectivity-19\GetALLContacts\GetALLContacts\obj\Debug\GetALLContacts.csproj.AssemblyReference.cache
+C:\Users\abdullah\Source\Repos\-Database-Connectivity-19\GetALLContacts\GetALLContacts\obj\Debug\GetALLContacts.csproj.CoreCompileInputs.cache
+C:\Users\abdullah\Source\Repos\-Database-Connectivity-19\GetALLContacts\GetALLContacts\obj\Debug\GetALLContacts.exe
+C:\Users\abdullah\Source\Repos\-Database-Connectivity-19\GetALLContacts\GetALLContacts\obj\Debug\GetALLContacts.pdb
