@@ -12,15 +12,15 @@ namespace GetALLContacts
         public static string connectionString = @"server=DTERMINAL105\MSSQLSERVER2022;User Id=SSDEV\abdullah;database=ContactsDB;Integrated Security=True;";
        
 
-        static void PrintAllContacts()
+        static void PrintAllContacts(string FirstName)
         {
 
             SqlConnection connection = new SqlConnection(connectionString);
 
-            string query = "SELECT * FROM Contacts";
+            string query = "SELECT * FROM Contacts where FirstName = @FirstName";
 
             SqlCommand command = new SqlCommand(query, connection);
-
+            command.Parameters.AddWithValue("@FirstName", FirstName);
             try
             {
                 connection.Open();
@@ -62,7 +62,7 @@ namespace GetALLContacts
 
         static void Main(string[] args)
         {
-            PrintAllContacts();
+            PrintAllContacts("John");
             Console.ReadKey();
         }
     }
