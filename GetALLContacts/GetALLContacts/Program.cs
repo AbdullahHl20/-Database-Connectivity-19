@@ -104,10 +104,50 @@ namespace GetALLContacts
                 Console.WriteLine("Error: " + ex.Message);
             }
 
+        } 
+        static void ReadExecuteScalar(int ContactID)
+        {
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT FirstName FROM Contacts where ContactID = @ContactID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ContactID", ContactID);
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    
+                    string firstName = (string)reader["FirstName"];
+                    
+
+                  
+                    Console.WriteLine($"Name: {firstName} ");
+                   
+                    Console.WriteLine();
+                }
+
+                reader.Close();
+                connection.Close();
+
+            }
+
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
         }
         static void Main(string[] args)
         {
             SercheinFirstNameAllContacts("j");
+            ReadExecuteScalar(1);
             Console.ReadKey();
         }
     }
