@@ -105,7 +105,7 @@ namespace GetALLContacts
             }
 
         } 
-        static void ReadExecuteScalar(int ContactID)
+        static string ReadFirstNameByContactId(int ContactID)
         {
 
             SqlConnection connection = new SqlConnection(connectionString);
@@ -118,36 +118,25 @@ namespace GetALLContacts
             {
                 connection.Open();
 
-                SqlDataReader reader = command.ExecuteReader();
+                object reader = command.ExecuteScalar();
 
-                while (reader.Read())
-                {
-                    
-                    string firstName = (string)reader["FirstName"];
-                    
-
-                  
-                    Console.WriteLine($"Name: {firstName} ");
-                   
-                    Console.WriteLine();
-                }
-
-                reader.Close();
                 connection.Close();
 
+                return Convert.ToString(reader);
             }
 
 
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                
+               return "Error: " + ex.Message;
             }
 
         }
         static void Main(string[] args)
         {
             SercheinFirstNameAllContacts("j");
-            ReadExecuteScalar(1);
+             Console.WriteLine(ReadFirstNameByContactId(1));
             Console.ReadKey();
         }
     }
