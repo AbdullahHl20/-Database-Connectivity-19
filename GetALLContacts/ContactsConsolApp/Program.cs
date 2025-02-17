@@ -96,13 +96,26 @@ namespace ContactsConsolApp
 
         }
 
+        static void testIsContactExist(int ID)
+
+        {
+
+            if ( clsContact.isContactExist(ID) )
+
+                Console.WriteLine("Yes, Contact is there.");
+
+            else
+                Console.WriteLine("No, Contact Is not there.");
+
+        }
+
         static void Main(string[] args)
         {
             
-            testFindContact(1);
+            //testFindContact(1);
             //testAddNewContact();
             //testUpdateContact(1);
-            //ListContacts();
+            ListContacts();
 
             Console.ReadKey();
 
