@@ -250,13 +250,55 @@ namespace GetALLContacts
             Console.WriteLine();
 
         }
+
+
+        static void AddNewContactAndGetID(Stcontactinfo newContact)
+        {
+
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = @"INSERT INTO Contacts (FirstName, LastName, Email, Phone, Address, CountryID)
+                             VALUES (@FirstName, @LastName, @Email, @Phone, @Address, @CountryID);
+                             SELECT SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@FirstName", newContact.FirstName);
+            command.Parameters.AddWithValue("@LastName", newContact.LastName);
+            command.Parameters.AddWithValue("@Email", newContact.Email);
+            command.Parameters.AddWithValue("@Phone", newContact.Phone);
+            command.Parameters.AddWithValue("@Address", newContact.Address);
+            command.Parameters.AddWithValue("@CountryID", newContact.CountryID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    Console.WriteLine($"Newly inserted ID: {insertedID}");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to retrieve the inserted ID.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+
+        }
         static void Main(string[] args)
         {
  
             Stcontactinfo contactinfo = new Stcontactinfo(); 
             Readcontactinfo( ref contactinfo);
             AddNewcontactinfo(ref  contactinfo);
-            PrintContactInfo (ref contactinfo);
+            PrintContactInfo(ref contactinfo);
             Console.ReadKey();
         }
     }
