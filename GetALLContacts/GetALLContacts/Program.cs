@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using static GetALLContacts.Program;
 using System.Net;
 using System.Security.Policy;
+using System.Runtime.InteropServices;
 
 namespace GetALLContacts
 {
@@ -16,13 +17,13 @@ namespace GetALLContacts
 
         public struct Stcontactinfo
         {
-            public int ContactID;
-            public string FirstName;
-            public string LastName;
-            public string Email;
-            public string Phone;
-            public string Address;
-            public int CountryID;
+            public int ContactID { set; get; }
+            public string FirstName { set; get; }
+            public string LastName { set; get; }
+            public string Email { set; get; }
+            public string Phone { set; get; }
+            public string Address { set; get; }
+            public int CountryID { set; get; }
 
         }
         static void PrintAllContacts(string FirstName)
@@ -177,7 +178,7 @@ namespace GetALLContacts
 
                 reader.Close();
                 connection.Close();
-               
+
             }
 
 
@@ -189,7 +190,36 @@ namespace GetALLContacts
 
             return isfound;
         }
+        static void AddNewcontactinfo( ref Stcontactinfo contactinfo)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
 
+            string query = "INSERT INTO [Contacts] ([FirstName],[LastName],[Email],[Phone],[Address] ,[CountryID]) VALUES (@FirstName,@LastName,@Email,@Phone,@Address,@CountryID)";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@FirstName", contactinfo.FirstName);
+            command.Parameters.AddWithValue("@LastName", contactinfo.LastName);
+            command.Parameters.AddWithValue("@Email", contactinfo.Email);
+            command.Parameters.AddWithValue("@Phone", contactinfo.Phone);
+            command.Parameters.AddWithValue("@Address", contactinfo.Address);
+            command.Parameters.AddWithValue("@CountryID", contactinfo.CountryID);
+
+            try
+            {
+                connection.Open();
+
+                if (command.ExecuteNonQuery() > 0)
+                    Console.WriteLine($"Added Contact Sucsses ");
+
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+
+            }            
+        }
 
         static void PrintContactInfo(ref Stcontactinfo contactinfo) 
         {
@@ -201,12 +231,32 @@ namespace GetALLContacts
             Console.WriteLine($"Country ID: {contactinfo.CountryID}");
             Console.WriteLine();
         }
+
+        static void Readcontactinfo(ref Stcontactinfo contactinfo)
+        { 
+
+            Console.WriteLine(" Palse Enter FirstName:");
+            contactinfo.FirstName = Console.ReadLine();            
+            Console.WriteLine(" Palse Enter LastName:  ");
+            contactinfo.LastName = Console.ReadLine();            
+            Console.WriteLine("Palse Enter Email:");
+            contactinfo.Email = Console.ReadLine();
+            Console.WriteLine("Palse Enter Phone: ");
+            contactinfo.Phone = Console.ReadLine();
+            Console.WriteLine("Palse Enter Address: ");
+            contactinfo.Address = Console.ReadLine();
+            Console.WriteLine("Palse Enter Country ID:");
+            contactinfo.CountryID = Convert.ToInt32( Console.ReadLine());
+            Console.WriteLine();
+
+        }
         static void Main(string[] args)
         {
  
             Stcontactinfo contactinfo = new Stcontactinfo(); 
-            FindSingleContactById(1, ref contactinfo);
-            PrintContactInfo(ref contactinfo);
+            Readcontactinfo( ref contactinfo);
+            AddNewcontactinfo(ref  contactinfo);
+            PrintContactInfo (ref contactinfo);
             Console.ReadKey();
         }
     }
