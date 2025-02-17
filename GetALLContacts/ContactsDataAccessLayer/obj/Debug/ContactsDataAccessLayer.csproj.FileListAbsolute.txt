@@ -10,3 +10,9 @@ C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\Contacts
 C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.dll
 C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.pdb
+D:\Trraining c#\Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.AssemblyReference.cache
+D:\Trraining c#\Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.CoreCompileInputs.cache
+D:\Trraining c#\Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.dll
+D:\Trraining c#\Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.pdb
+D:\Trraining c#\Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.dll
+D:\Trraining c#\Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.pdb
