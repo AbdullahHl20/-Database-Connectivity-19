@@ -165,6 +165,7 @@ namespace GetALLContacts
 
                 if (reader.Read())
                 {
+                    isfound = true;
                     contactinfo.ContactID = (int)reader["ContactID"];
                     contactinfo.FirstName = (string)reader["FirstName"];
                     contactinfo.LastName = (string)reader["LastName"];
@@ -176,7 +177,7 @@ namespace GetALLContacts
 
                 reader.Close();
                 connection.Close();
-                isfound = true;
+               
             }
 
 
@@ -186,15 +187,12 @@ namespace GetALLContacts
                 return false;
             }
 
-
             return isfound;
         }
 
 
         static void PrintContactInfo(ref Stcontactinfo contactinfo) 
         {
-
-
             Console.WriteLine($"Contact ID: {contactinfo.ContactID}");
             Console.WriteLine($"Name: {contactinfo.FirstName} {contactinfo.LastName}");
             Console.WriteLine($"Email: {contactinfo.Email}");
@@ -206,7 +204,7 @@ namespace GetALLContacts
         static void Main(string[] args)
         {
  
-            Stcontactinfo contactinfo = new Stcontactinfo(); ;
+            Stcontactinfo contactinfo = new Stcontactinfo(); 
             FindSingleContactById(1, ref contactinfo);
             PrintContactInfo(ref contactinfo);
             Console.ReadKey();
