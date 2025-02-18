@@ -6,8 +6,8 @@ namespace ContactsDataAccessLayer
 {
     public class clsContactDataAccess
     {
-        public static bool GetContactInfoByID(int ID, ref  string FirstName, ref string LastName,
-            ref string Email , ref string Phone, ref string Address ,
+        public static bool GetContactInfoByID(int ID, ref string FirstName, ref string LastName,
+            ref string Email, ref string Phone, ref string Address,
             ref DateTime DateOfBirth, ref int CountryID, ref string ImagePath)
         {
             bool isFound = false;
@@ -30,7 +30,7 @@ namespace ContactsDataAccessLayer
 
                     // The record was found
                     isFound = true;
-                  
+
                     FirstName = (string)reader["FirstName"];
                     LastName = (string)reader["LastName"];
                     Email = (string)reader["Email"];
@@ -38,7 +38,15 @@ namespace ContactsDataAccessLayer
                     Address = (string)reader["Address"];
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
                     CountryID = (int)reader["CountryID"];
-                    ImagePath = (string)reader["ImagePath"];
+
+
+                    if (reader["ImagePath"] != DBNull.Value )
+                    {
+                        ImagePath = (string)reader["ImagePath"];
+
+                    }
+                    else
+                        ImagePath = "";
 
                 }
                 else
@@ -48,7 +56,7 @@ namespace ContactsDataAccessLayer
                 }
 
                 reader.Close();
-               
+
 
             }
             catch (Exception ex)
@@ -57,16 +65,16 @@ namespace ContactsDataAccessLayer
                 isFound = false;
             }
             finally
-            { 
-                connection.Close(); 
+            {
+                connection.Close();
             }
 
             return isFound;
         }
 
         public static int AddNewContact(string FirstName, string LastName,
-            string Email, string Phone, string Address, 
-            DateTime DateOfBirth, int CountryID,string ImagePath)
+            string Email, string Phone, string Address,
+            DateTime DateOfBirth, int CountryID, string ImagePath)
         {
             //this function will return the new contact id if succeeded and -1 if not.
 
@@ -95,7 +103,7 @@ namespace ContactsDataAccessLayer
 
                 if (result != null && int.TryParse(result.ToString(), out int insertedID))
                 {
-                   return insertedID;
+                    return insertedID;
                 }
                 else
                 {
@@ -106,17 +114,17 @@ namespace ContactsDataAccessLayer
             catch (Exception ex)
             {
                 //Console.WriteLine("Error: " + ex.Message);
-               
+
             }
 
             return -1;
         }
 
-        public static bool UpdateContact(int ID,string FirstName, string LastName,
-            string Email, string Phone, string Address, DateTime DateOfBirth, int CountryID,string ImagePath)
+        public static bool UpdateContact(int ID, string FirstName, string LastName,
+            string Email, string Phone, string Address, DateTime DateOfBirth, int CountryID, string ImagePath)
         {
 
-            int rowsAffected=0;
+            int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"Update  Contacts  
@@ -133,11 +141,11 @@ namespace ContactsDataAccessLayer
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@ContactID", ID);
-            command.Parameters.AddWithValue("@FirstName",FirstName);
+            command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@LastName", LastName);
-            command.Parameters.AddWithValue("@Email",    Email);
-            command.Parameters.AddWithValue("@Phone",    Phone);
-            command.Parameters.AddWithValue("@Address",  Address);
+            command.Parameters.AddWithValue("@Email", Email);
+            command.Parameters.AddWithValue("@Phone", Phone);
+            command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             command.Parameters.AddWithValue("@CountryID", CountryID);
             command.Parameters.AddWithValue("@ImagePath", ImagePath);
@@ -154,10 +162,10 @@ namespace ContactsDataAccessLayer
                 return false;
             }
 
-            finally 
-             { 
-                connection.Close(); 
-             } 
+            finally
+            {
+                connection.Close();
+            }
 
             return (rowsAffected > 0);
         }
@@ -176,6 +184,7 @@ namespace ContactsDataAccessLayer
             {
                 connection.Open();
 
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows)
@@ -191,21 +200,21 @@ namespace ContactsDataAccessLayer
 
             catch (Exception ex)
             {
-               // Console.WriteLine("Error: " + ex.Message);
+                // Console.WriteLine("Error: " + ex.Message);
             }
-            finally 
-            { 
-                connection.Close(); 
+            finally
+            {
+                connection.Close();
             }
 
             return dt;
 
         }
 
-        public  static bool DeleteContact(int ContactID)
+        public static bool DeleteContact(int ContactID)
         {
 
-            int rowsAffected=0;
+            int rowsAffected = 0;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -220,18 +229,18 @@ namespace ContactsDataAccessLayer
             {
                 connection.Open();
 
-                 rowsAffected = command.ExecuteNonQuery();
+                rowsAffected = command.ExecuteNonQuery();
 
             }
             catch (Exception ex)
             {
-               // Console.WriteLine("Error: " + ex.Message);
+                // Console.WriteLine("Error: " + ex.Message);
             }
-            finally 
-            { 
-                
-                connection.Close(); 
-            
+            finally
+            {
+
+                connection.Close();
+
             }
 
             return (rowsAffected > 0);

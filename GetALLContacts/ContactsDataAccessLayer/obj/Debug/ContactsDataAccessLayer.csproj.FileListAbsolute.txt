@@ -4,3 +4,9 @@ C:\Users\Acer\Dropbox\Personal\Advices\2021\18 ADO\Projects\ContactsDataAccessLa
 C:\Users\Acer\Dropbox\Personal\Advices\2021\18 ADO\Projects\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Acer\Dropbox\Personal\Advices\2021\18 ADO\Projects\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.dll
 C:\Users\Acer\Dropbox\Personal\Advices\2021\18 ADO\Projects\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.pdb
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.dll
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.pdb

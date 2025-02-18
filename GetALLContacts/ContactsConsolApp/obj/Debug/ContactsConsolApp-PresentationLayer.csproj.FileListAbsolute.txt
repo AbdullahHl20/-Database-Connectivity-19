@@ -11,3 +11,15 @@ C:\Users\Acer\Dropbox\Personal\Advices\2021\18 ADO\Projects\ContactsConsolApp\bi
 C:\Users\Acer\Dropbox\Personal\Advices\2021\18 ADO\Projects\ContactsConsolApp\bin\Debug\ContactBusinessLayer.pdb
 C:\Users\Acer\Dropbox\Personal\Advices\2021\18 ADO\Projects\ContactsConsolApp\bin\Debug\ContactsDataAccessLayer.pdb
 C:\Users\Acer\Dropbox\Personal\Advices\2021\18 ADO\Projects\ContactsConsolApp\obj\Debug\ContactsConsolApp-PresentationLayer.csproj.CopyComplete
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\bin\Debug\ContactsConsolApp.exe.config
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\bin\Debug\ContactsConsolApp.exe
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\bin\Debug\ContactsConsolApp.pdb
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\bin\Debug\ContactBusinessLayer.dll
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\bin\Debug\ContactsDataAccessLayer.dll
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\bin\Debug\ContactBusinessLayer.pdb
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\bin\Debug\ContactsDataAccessLayer.pdb
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\obj\Debug\ContactsConsolApp-PresentationLayer.csproj.AssemblyReference.cache
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\obj\Debug\ContactsConsolApp-PresentationLayer.csproj.CoreCompileInputs.cache
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\obj\Debug\Contacts.558F1E09.Up2Date
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\obj\Debug\ContactsConsolApp.exe
+C:\Users\abdullah\source\repos\-Database-Connectivity-19\GetALLContacts\ContactsConsolApp\obj\Debug\ContactsConsolApp.pdb
