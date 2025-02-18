@@ -93,7 +93,12 @@ namespace ContactsDataAccessLayer
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             command.Parameters.AddWithValue("@CountryID", CountryID);
-            command.Parameters.AddWithValue("@ImagePath", ImagePath);
+
+            if (ImagePath != "")
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            else
+                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+
             try
             {
                 connection.Open();
