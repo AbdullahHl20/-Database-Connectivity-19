@@ -190,7 +190,7 @@ namespace GetALLContacts
 
             return isfound;
         }
-        static void AddNewcontactinfo( ref Stcontactinfo contactinfo)
+        static void AddNewcontactinfo( ref Stcontactinfo contactinfo )
         {
             SqlConnection connection = new SqlConnection(connectionString);
 
